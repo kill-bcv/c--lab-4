@@ -1,0 +1,20 @@
+CC = g++
+CXXF = -std=c++20
+LDF = -lstdc++
+
+
+all : Exe 
+Exe : apple.o snake.o main.o 
+		$(CC) apple.o snake.o main.o -o Exe $(LDF)
+
+apple.o: Apple.cpp
+		$(CC) -c Apple.cpp $(CXXF)
+
+snake.o: Snake.cpp
+		$(CC) -c Snake.cpp $(CXXF)
+
+main.o: main.cpp
+		$(CC) -c main.cpp $(CXXF)
+
+clean: 
+		rm -rf *o  apple.o engine.o snake.o map.o main.o Exe
